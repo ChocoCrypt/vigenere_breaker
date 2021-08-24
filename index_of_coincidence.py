@@ -103,7 +103,7 @@ def shif_string_to_decoded_string(string):
         distances.append(distance)
     min_distance = np.argmin(distances)
     decoded_string = shift(string , min_distance)
-    print(decoded_string)
+    return(decoded_string)
 
 def adecuated_string_to_decoded_strings(adecuated_string):
     new_pals = []
@@ -112,9 +112,24 @@ def adecuated_string_to_decoded_strings(adecuated_string):
         new_pals.append(pal)
     return(new_pals)
 
+def reverse_decoded_strings(decoded_strings):
+    tam = len(decoded_strings[0])
+    pegado = "".join(decoded_strings)
+    pals = ["" for x in range(tam)]
+    index = 1
+    for j in range(tam):
+        for i in range(len(pegado)):
+            if(i%tam == j):
+                pals[i%tam] += pegado[i]
+    final_decode ="".join(pals)
+    print(final_decode)
+    return(final_decode)
+
+
 
 
 
 
 strings = get_key_lenght_text("REIAUBLZXYQOKHMRNTEZHFLVIABHDMJMSJOGIRETPHBVVFTQHEXTARVIXSNQRIQPEJOLMDDEJORGVFECUTQVHIIKVMUKHVQPARPIVBIVGQIUFHIWZSTMBTHOSLXDNDFLFYIBPMRPOHCUOLJFEMSXIJBITHPSEQUXRZEEATPHDAFGLLQAXIQAKKRVFYTPHSVFGNLEQRVMTPWAXYQSCURETQONWTINMTMUMFFHEBKQVVPWMOXXYQSMDWMESAVGTMJEUJMQGKEWMPGWKZOBLYEXUNMWTEKFHMUQMJZOBKURXMTBKQFFFTWPAJKTEAHMFLFBIUQCVXLWZEEEP")
-adecuated_string_to_decoded_strings(strings)
+decoded_strings = adecuated_string_to_decoded_strings(strings)
+reverse_decoded_strings(decoded_strings)
