@@ -79,6 +79,7 @@ def distance_to_english(string):
     distance = np.sqrt(distance)
     return(distance)
 
+
 #defino hacerle un shift a una palabra para medir las distancias de los shifts
 def shift(string, n):
     alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
@@ -87,6 +88,7 @@ def shift(string, n):
         new_letter = alfabeto[(alfabeto.index(i) + n)%26]
         newstring += new_letter
     return(newstring)
+
 
 #recibo un string, genero los 26 shifts posibles y le hago el shift al más cercano al inglés
 def shif_string_to_decoded_string(string):
@@ -98,6 +100,7 @@ def shif_string_to_decoded_string(string):
     decoded_string = shift(string , min_distance)
     return(decoded_string)
 
+
 #recibo una lista de sub strings de longitud de la llave y a todos les hago el shift al inglés
 def adecuated_string_to_decoded_strings(adecuated_string):
     new_pals = []
@@ -105,6 +108,7 @@ def adecuated_string_to_decoded_strings(adecuated_string):
         pal = shif_string_to_decoded_string(i)
         new_pals.append(pal)
     return(new_pals)
+
 
 #recibo una lista de chunks ya en inglés y los concateno, retorno la concatenación
 def reverse_decoded_strings(decoded_strings):
@@ -118,5 +122,3 @@ def reverse_decoded_strings(decoded_strings):
                 pals[i%tam] += pegado[i]
     final_decode ="".join(pals)
     return(final_decode)
-
-
