@@ -67,7 +67,7 @@ def get_key_lenght_text(string):
         for i in range(len(string)):
             if(i%mini == j):
                 letters[i%mini] += string[i]
-    return(adecuated_strings)
+    return(letters)
 
 
 def distance_to_english(string):
@@ -83,7 +83,7 @@ def distance_to_english(string):
     for i in range(len(frequences.values())):
         x = list(frequences.values())[i]
         y = english_freqs[i]
-        distance += (x*y)*(x*y)
+        distance += (x-y)*(x-y)
     distance = np.sqrt(distance)
     return(distance)
 
@@ -96,19 +96,18 @@ def shift(string, n):
         newstring += new_letter
     return(newstring)
 
+def shif_string_to_decoded_string(string):
+    distances = []
+    for i in range(26):
+        distance = distance_to_english(shift(string , i))
+        distances.append(distance)
+    min_distance = np.argmin(distances)
+    decoded_string = shift(string , min_distance)
+    print(decoded_string)
 
 def distance_to_english_adecuated_string(adecuated_string):
-    alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
     for i in adecuated_string:
-        distances = []
-        for j in range(26):
-            newpal = shift(i,j)
-            distance = distance_to_english(newpal)
-            distances.append(distance)
-        min_distance = np.argmin(distances) +1
-        new_pal = shift(i , min_distance)
-        print(new_pal)
-
+        shif_string_to_decoded_string(i)
 
 
 
