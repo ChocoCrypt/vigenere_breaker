@@ -101,9 +101,9 @@ def distance_to_english_adecuated_string(adecuated_string):
             newpal = shift(i,j)
             distance = distance_to_english(newpal)
             distances.append(distance)
-        print(np.min(distances))
-        min_distance = np.argmin(distances)
+        min_distance = np.argmin(distances) +1
         new_pal = shift(i , min_distance)
+        print(new_pal)
 
 
 
