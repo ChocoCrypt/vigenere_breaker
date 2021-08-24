@@ -119,7 +119,6 @@ def reverse_decoded_strings(decoded_strings):
             if(i%tam == j):
                 pals[i%tam] += pegado[i]
     final_decode ="".join(pals)
-    print(final_decode)
     return(final_decode)
 
 
