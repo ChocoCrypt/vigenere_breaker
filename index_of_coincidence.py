@@ -105,11 +105,16 @@ def shif_string_to_decoded_string(string):
     decoded_string = shift(string , min_distance)
     print(decoded_string)
 
-def distance_to_english_adecuated_string(adecuated_string):
+def adecuated_string_to_decoded_strings(adecuated_string):
+    new_pals = []
     for i in adecuated_string:
-        shif_string_to_decoded_string(i)
+        pal = shif_string_to_decoded_string(i)
+        new_pals.append(pal)
+    return(new_pals)
+
+
 
 
 
 strings = get_key_lenght_text("REIAUBLZXYQOKHMRNTEZHFLVIABHDMJMSJOGIRETPHBVVFTQHEXTARVIXSNQRIQPEJOLMDDEJORGVFECUTQVHIIKVMUKHVQPARPIVBIVGQIUFHIWZSTMBTHOSLXDNDFLFYIBPMRPOHCUOLJFEMSXIJBITHPSEQUXRZEEATPHDAFGLLQAXIQAKKRVFYTPHSVFGNLEQRVMTPWAXYQSCURETQONWTINMTMUMFFHEBKQVVPWMOXXYQSMDWMESAVGTMJEUJMQGKEWMPGWKZOBLYEXUNMWTEKFHMUQMJZOBKURXMTBKQFFFTWPAJKTEAHMFLFBIUQCVXLWZEEEP")
-distance_to_english_adecuated_string(strings)
+adecuated_string_to_decoded_strings(strings)
