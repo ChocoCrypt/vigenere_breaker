@@ -27,7 +27,6 @@ def ic(string):
     return(ic)
 
 
-
 def len_del_chunk(subchunk):
     len_del_chunk = len(subchunk[0])
     return(len_del_chunk)
@@ -44,8 +43,6 @@ def get_ic_subchunk(subchunk):
                 pass
     ics = [IC(i) for i in sub_strings] #hay que cambiar la función
     return(np.mean(ics))
-
-
 
 def get_key_lenght_text(string):
     len_sub_chunk = 1
@@ -124,10 +121,6 @@ def reverse_decoded_strings(decoded_strings):
     final_decode ="".join(pals)
     print(final_decode)
     return(final_decode)
-
-
-
-
 
 
 strings = get_key_lenght_text("REIAUBLZXYQOKHMRNTEZHFLVIABHDMJMSJOGIRETPHBVVFTQHEXTARVIXSNQRIQPEJOLMDDEJORGVFECUTQVHIIKVMUKHVQPARPIVBIVGQIUFHIWZSTMBTHOSLXDNDFLFYIBPMRPOHCUOLJFEMSXIJBITHPSEQUXRZEEATPHDAFGLLQAXIQAKKRVFYTPHSVFGNLEQRVMTPWAXYQSCURETQONWTINMTMUMFFHEBKQVVPWMOXXYQSMDWMESAVGTMJEUJMQGKEWMPGWKZOBLYEXUNMWTEKFHMUQMJZOBKURXMTBKQFFFTWPAJKTEAHMFLFBIUQCVXLWZEEEP")
