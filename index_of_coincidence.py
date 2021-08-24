@@ -67,22 +67,26 @@ def get_key_lenght_text(string):
         for i in range(len(string)):
             if(i%mini == j):
                 letters[i%mini] += string[i]
-
     return(adecuated_strings)
+
 
 def distance_to_english(string):
     alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
-    distance = 0
     english_freqs = [0.082, 0.015, 0.028, 0.043, 0.127, 0.022, 0.020, 0.061, 0.07, 0.002, 0.008, 0.04, 0.024, 0.067, 0.075, 0.019, 0.001, 0.06, 0.063, 0.091, 0.028, 0.01, 0.023, 0.001, 0.02, 0.001]
     frequences = {i:0 for i in alfabeto}
     for i in string:
         frequences[i] += 1
+    #normalizamos las frecuencias
     for i in frequences:
-        frequences[i]/=len(string)
-    for i in range(len(frequences)):
-        distance+=((list(frequences.values())[i]-english_freqs[i])**2)
+        frequences[i] = frequences[i]/len(frequences)
+    distance = 0
+    for i in range(len(frequences.values())):
+        x = list(frequences.values())[i]
+        y = english_freqs[i]
+        distance += (x*y)*(x*y)
     distance = np.sqrt(distance)
     return(distance)
+
 
 def shift(string, n):
     alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
