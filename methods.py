@@ -2,17 +2,28 @@ import numpy as np
 
 
 def IC(c):
-    n = len(c)
-    alphabet = [chr(i) for i in range(ord("A") , ord("Z")+1)]
-    freqs = {ch: 0 for ch in alphabet}
-    for ch in c:
-        freqs[ch] += 1
-    res = 0
-    for ch in freqs:
-        res += (freqs[ch]*freqs[ch]-1)
-    res /= (n*(n-1))
-    return res
+    longitud_string = len(c)
+    alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
+    frecuencias = {i: 0 for i in alfabeto}
+    for i in c:
+        frecuencias[i] += 1
+    tot = 0
+    for i in frecuencias:
+        tot += (frecuencias[i]*frecuencias[i]-1)
+    tot /= (longitud_string*(longitud_string-1))
+    return tot
 
+def ic(c):
+    longitud_string = len(c)
+    alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
+    frecuencias = {i: 0 for i in alfabeto}
+    tot = 0
+    for i in c:
+        frecuencias[i] += 1
+    for i in frecuencias:
+        tot +=  (frecuencias[i]*(frecuencias[i]-1))
+    tot /= (longitud_string*(longitud_string-1))
+    return(tot)
 
 #este metodo retorna la longitud de un chunk, es util para tener el índice de coindicencia de un chunk
 def len_del_chunk(subchunk):
