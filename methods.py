@@ -20,8 +20,10 @@ def ic(c):
     tot = 0
     for i in c:
         frecuencias[i] += 1
+        #end
     for i in frecuencias:
-        tot +=  (frecuencias[i]*(frecuencias[i]-1))
+        tot +=  frecuencias[i]*(frecuencias[i]-1)
+        #end
     tot /= (longitud_string*(longitud_string-1))
     return(tot)
 
@@ -103,11 +105,13 @@ def shift(string, n):
 
 #recibo un string, genero los 26 shifts posibles y le hago el shift al más cercano al inglés
 def shif_string_to_decoded_string(string):
+    alfabeto = [chr(i) for i in range(ord("A") , ord("Z")+1)]
     distances = []
     for i in range(26):
         distance = distance_to_english(shift(string , i))
         distances.append(distance)
     min_distance = np.argmin(distances)
+    #print(alfabeto.index(min_distance))
     decoded_string = shift(string , min_distance)
     return(decoded_string)
 
@@ -133,3 +137,8 @@ def reverse_decoded_strings(decoded_strings):
                 pals[i%tam] += pegado[i]
     final_decode ="".join(pals)
     return(final_decode)
+
+
+
+palabra = "UYWOVTRBANTPIJQFIGPNOUOXYFVLWZQCSPBJCZQFUIOPRWZUAAFISWAEKCOUPNVKJUFGQPDVGOSVCZUPSPDPNORZUFFKVAPJGVAE"
+print(ic(palabra))
