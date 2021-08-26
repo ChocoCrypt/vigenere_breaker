@@ -111,7 +111,7 @@ def shif_string_to_decoded_string(string):
         distance = distance_to_english(shift(string , i))
         distances.append(distance)
     min_distance = np.argmin(distances)
-    #print(alfabeto.index(min_distance))
+    print(alfabeto[(26 -min_distance)%26] , end = "")
     decoded_string = shift(string , min_distance)
     return(decoded_string)
 
